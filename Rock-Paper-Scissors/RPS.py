@@ -1,7 +1,9 @@
 from random import*
 
 def rps():
-    players = input("Welcome to Rock, Paper, Scissors! Press 1 for One Player or 2 for Two Players")
+    players = input("Welcome to Rock, Paper, Scissors! Press 1 for One Player or 2 for Two Players. Enter 'quit' to exit.")
+    if players.lower() == "quit":
+        return
     cpu = randint(0,99)
     if cpu >= 0 and cpu <33:
         cpu_choice = "rock"
@@ -54,30 +56,30 @@ def rps():
             print("Invalid answer. Try again with 'rock', 'paper', or 'scissors'")
             rps()
         if choice1.lower() == "rock":
-            if choice2 == "rock":
+            if choice2.lower() == "rock":
                 print(user2, "chose", choice2)
                 print("Tie!")
-            elif choice2 == "paper":
+            elif choice2.lower() == "paper":
                 print(user2, "chose", choice2)
                 print(user2, "wins!")
             else:
                 print(user2, "chose", choice2)
                 print(user1, "you won!")
         elif choice1.lower() == "paper":
-            if choice2 == "rock":
+            if choice2.lower() == "rock":
                 print(user2, "chose", choice2)
                 print(user1, "you won!")
-            elif choice2 == "paper":
+            elif choice2.lower() == "paper":
                 print(user2, "chose", choice2)
                 print("Tie!")
             else:
                 print(user2, "chose", choice2)
                 print("Sorry",user1+",",user2,"won.")
-        elif choice2 == "scissors":
+        elif choice1.lower() == "scissors":
             if choice2 == "rock":
                 print(user2, "chose", choice2)
                 print("Sorry",user1+",", user2, "won.")
-            elif chocie2 == "paper":
+            elif choice2.lower() == "paper":
                 print(user2, "chose", choice2)
                 print(user1, "you won!")
             else:
@@ -89,3 +91,8 @@ def rps():
     else:
         print("Invalid answer. You may only have 1 or 2 players")
         rps()
+    cont = input("See Output box for result. Type 'yes' to play again")
+    if cont.lower() == "yes":
+        rps()
+    else:
+        return
